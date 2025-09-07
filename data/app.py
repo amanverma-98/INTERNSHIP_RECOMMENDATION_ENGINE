@@ -181,21 +181,16 @@ if submitted:
             skills = row["skills_list_hi"] if LANG else row["skills_list_en"]
             overlap, n_overlap, n_total = match_breakdown(row, selected_skills)
 
-            st.markdown(f"""
-            <div class="recommend-card">
-                <h3 style="color:#1565c0;">{rank}. {title}</h3>
-                <p><b>📍 {t("Location","स्थान")}:</b> {location}</p>
-                <p><b>🏷 {t("Sector","क्षेत्र")}:</b> {sector}</p>
-                <p><b>🎓 {t("Education","शिक्षा")}:</b> {edu}</p>
-                <p><b>🛠 {t("Skills","कौशल")}:</b> {", ".join(skills)}</p>
-                <p><b>✅ {t("Your Overlap","आपकी मेल स्किल्स")}:</b> {", ".join(overlap) if overlap else t("No direct overlap","कोई मेल नहीं")}</p>
-                <a href="{row['apply_url']}" target="_blank">
-                    <button style="background-color:#1565c0;color:white;padding:8px 16px;border:none;border-radius:6px;cursor:pointer;">
-                        {t("Apply on PM Portal","पीएम पोर्टल पर आवेदन करें")}
-                    </button>
+           st.markdown(f"""
+                 <a href="https://pminternship.mca.gov.in/" target="_blank">
+                 <div style="display:inline-block; background-color:#1565c0; color:white;
+                 padding:8px 16px; border:none; border-radius:6px; cursor:pointer;
+                 text-align:center; text-decoration:none; font-weight:bold;">
+                 {t("Apply on PM Portal","पीएम पोर्टल पर आवेदन करें")}
+                </div>
                 </a>
-            </div>
-            """, unsafe_allow_html=True)
+               """, unsafe_allow_html=True)
+
 
         st.caption(t("Tip: Add more skills or change location to improve matches.","टिप: बेहतर मेल के लिए अधिक स्किल्स जोड़ें या स्थान बदलें."))
 
