@@ -172,24 +172,32 @@ if submitted:
         st.markdown("---")
         st.subheader(t("Top Recommendations","शीर्ष सिफारिशें"))
 
-        for rank, idx in enumerate(order, start=1):
-            row = df.iloc[idx]
-            title = row["title_hi"] if LANG else row["title_en"]
-            sector = row["sector_list_hi"][0] if LANG else row["sector_list_en"][0]
-            location = row["location_list_hi"][0] if LANG else row["location_list_en"][0]
-            edu = row["edu_list_hi"][0] if LANG else row["edu_list_en"][0]
-            skills = row["skills_list_hi"] if LANG else row["skills_list_en"]
-            overlap, n_overlap, n_total = match_breakdown(row, selected_skills)
+for rank, idx in enumerate(order, start=1):
+    row = df.iloc[idx]
+    overlap, n_overlap, n_total = match_breakdown(row, selected_skills)
 
-           st.markdown(f"""
-                 <a href="https://pminternship.mca.gov.in/" target="_blank">
-                 <div style="display:inline-block; background-color:#1565c0; color:white;
-                 padding:8px 16px; border:none; border-radius:6px; cursor:pointer;
-                 text-align:center; text-decoration:none; font-weight:bold;">
-                 {t("Apply on PM Portal","पीएम पोर्टल पर आवेदन करें")}
-                </div>
-                </a>
-               """, unsafe_allow_html=True)
+    st.markdown(f"""
+    <div class="recommend-card">
+    <h3 style="color:#1565c0;">{rank}. {row['title']}</h3>
+    <p><b>📍 {t("Location","स्थान")}:</b> {row['location']}</p>
+    <p><b>🏷 {t("Sector","क्षेत्र")}:</b> {row['sector']}</p>
+    <p><b>🎓 {t("Education","शिक्षा")}:</b> {row['education_level']}</p>
+    <p><b>🛠 {t("Skills","कौशल")}:</b> {", ".join(row["skills_list"])}</p>
+    <p><b>✅ {t("Your Overlap","आपकी मेल स्किल्स")}:</b> {", ".join(overlap) if overlap else t("No direct overlap","कोई मेल नहीं")}</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # ✅ Add Apply button here with correct indentation
+    st.markdown(f"""
+    <a href="https://pminternship.mca.gov.in/" target="_blank">
+       <div style="display:inline-block; background-color:#1565c0; color:white;
+           padding:8px 16px; border:none; border-radius:6px; cursor:pointer;
+           text-align:center; text-decoration:none; font-weight:bold;">
+           {t("Apply on PM Portal","पीएम पोर्टल पर आवेदन करें")}
+       </div>
+    </a>
+    """, unsafe_allow_html=True)
+
 
 
         st.caption(t("Tip: Add more skills or change location to improve matches.","टिप: बेहतर मेल के लिए अधिक स्किल्स जोड़ें या स्थान बदलें."))
