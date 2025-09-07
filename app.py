@@ -67,7 +67,7 @@ st.set_page_config(page_title="PM Internship Recommender", page_icon="🧭", lay
 # ------------------------- Load Data -------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv("./data/internships.csv")
+    df = pd.read_csv("internships.csv")
     
     # Split English / Hindi columns
     for col in ["title", "skills", "sector", "location"]:
