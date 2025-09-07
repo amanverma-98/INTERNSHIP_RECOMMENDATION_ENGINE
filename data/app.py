@@ -160,47 +160,61 @@ def match_breakdown(c_row, cand_skills):
     overlap = sorted(intern_skills.intersection(set(cand_skills)))
     return overlap, len(overlap), len(intern_skills)
 
-# ------------------------- Recommendations -------------------------
+# ------------------------- Recommendations (robust) -------------------------
 if submitted:
-    if not selected_skills and not selected_sector and not selected_location and not selected_edu:
+    # require at least one input
+    if not (selected_skills or selected_sector or selected_location or selected_edu):
         st.info(t("Please select at least one input.","कृपया कम से कम एक विकल्प चुनें।"))
     else:
-        cand_vec = encode_candidate(selected_skills, selected_sector, selected_location, selected_edu)
-        sims = cosine_similarity(cand_vec, internship_vectors)[0]
-        order = np.argsort(-sims)[:top_k]
+        # compute candidate vector and similarity in a try/except so errors are visible
+        try:
+            cand_vec = encode_candidate(selected_skills, selected_sector, selected_location, selected_edu)
+            sims = cosine_similarity(cand_vec, internship_vectors)[0]
+            # top_k may come from the form
+            order = np.argsort(-sims)[:top_k]
+        except Exception as e:
+            # show error message so you can debug more easily
+            st.error(t("Error computing recommendations. Check logs for details.","सिफारिशें निकालते समय त्रुटि हुई। विवरण के लिए लॉग देखें।"))
+            # print exception to Streamlit output (useful while debugging)
+            st.write(e)
+            order = []
 
-        st.markdown("---")
-        st.subheader(t("Top Recommendations","शीर्ष सिफारिशें"))
+        # If no matches or order empty
+        if len(order) == 0:
+            st.info(t("No recommendations found. Try changing filters.","कोई सिफारिश नहीं मिली। फ़िल्टर बदलकर देखें।"))
+        else:
+            st.markdown("---")
+            st.subheader(t("Top Recommendations","शीर्ष सिफारिशें"))
 
-for rank, idx in enumerate(order, start=1):
-    row = df.iloc[idx]
-    overlap, n_overlap, n_total = match_breakdown(row, selected_skills)
+            for rank, idx in enumerate(order, start=1):
+                row = df.iloc[idx]
 
-    st.markdown(f"""
-    <div class="recommend-card">
-    <h3 style="color:#1565c0;">{rank}. {row['title']}</h3>
-    <p><b>📍 {t("Location","स्थान")}:</b> {row['location']}</p>
-    <p><b>🏷 {t("Sector","क्षेत्र")}:</b> {row['sector']}</p>
-    <p><b>🎓 {t("Education","शिक्षा")}:</b> {row['education_level']}</p>
-    <p><b>🛠 {t("Skills","कौशल")}:</b> {", ".join(row["skills_list"])}</p>
-    <p><b>✅ {t("Your Overlap","आपकी मेल स्किल्स")}:</b> {", ".join(overlap) if overlap else t("No direct overlap","कोई मेल नहीं")}</p>
-    </div>
-    """, unsafe_allow_html=True)
+                # choose title/fields based on language
+                title = row["title_hi"] if LANG else row["title_en"]
+                sector = row["sector_list_hi"][0] if LANG else row["sector_list_en"][0]
+                location = row["location_list_hi"][0] if LANG else row["location_list_en"][0]
+                edu = row["edu_list_hi"][0] if LANG else row["edu_list_en"][0]
+                skills = row["skills_list_hi"] if LANG else row["skills_list_en"]
 
-    # ✅ Add Apply button here with correct indentation
-    st.markdown(f"""
-    <a href="https://pminternship.mca.gov.in/" target="_blank">
-       <div style="display:inline-block; background-color:#1565c0; color:white;
-           padding:8px 16px; border:none; border-radius:6px; cursor:pointer;
-           text-align:center; text-decoration:none; font-weight:bold;">
-           {t("Apply on PM Portal","पीएम पोर्टल पर आवेदन करें")}
-       </div>
-    </a>
-    """, unsafe_allow_html=True)
+                overlap, n_overlap, n_total = match_breakdown(row, selected_skills)
 
+                st.markdown(f"""
+                <div class="recommend-card">
+                    <h3 style="color:#1565c0;">{rank}. {title}</h3>
+                    <p><b>📍 {t("Location","स्थान")}:</b> {location}</p>
+                    <p><b>🏷 {t("Sector","क्षेत्र")}:</b> {sector}</p>
+                    <p><b>🎓 {t("Education","शिक्षा")}:</b> {edu}</p>
+                    <p><b>🛠 {t("Skills","कौशल")}:</b> {", ".join(skills)}</p>
+                    <p><b>✅ {t("Your Overlap","आपकी मेल स्किल्स")}:</b> {", ".join(overlap) if overlap else t("No direct overlap","कोई मेल नहीं")}</p>
+                    <a href="https://pminternship.mca.gov.in/" target="_blank">
+                        <div style="display:inline-block; background-color:#1565c0; color:white; padding:8px 16px; border-radius:6px; cursor:pointer; text-decoration:none; font-weight:bold;">
+                            {t("Apply on PM Portal","पीएम पोर्टल पर आवेदन करें")}
+                        </div>
+                    </a>
+                </div>
+                """, unsafe_allow_html=True)
 
-
-    st.caption(t("Tip: Add more skills or change location to improve matches.","टिप: बेहतर मेल के लिए अधिक स्किल्स जोड़ें या स्थान बदलें."))
+            st.caption(t("Tip: Add more skills or change location to improve matches.","टिप: बेहतर मेल के लिए अधिक स्किल्स जोड़ें या स्थान बदलें."))
 
 # ------------------------- About -------------------------
 st.markdown("---")
