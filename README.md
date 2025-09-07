@@ -94,7 +94,7 @@ flowchart LR
 ---
 
 ## 📌 Notes
-- Dataset is a demo (20 internships). Replace `data/internships.csv` with live data export from the PM portal.
+- Dataset is a demo (24 internships). Replace `data/internships.csv` with live data export from the PM portal.
 - The vectorizer builds vocab **from dataset** to keep it lightweight and deterministic.
 - Add more languages by wrapping UI strings in the `t(en, hi)` helper.
 
