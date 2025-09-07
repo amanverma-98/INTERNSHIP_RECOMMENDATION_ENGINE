@@ -200,7 +200,7 @@ for rank, idx in enumerate(order, start=1):
 
 
 
-        st.caption(t("Tip: Add more skills or change location to improve matches.","टिप: बेहतर मेल के लिए अधिक स्किल्स जोड़ें या स्थान बदलें."))
+     st.caption(t("Tip: Add more skills or change location to improve matches.","टिप: बेहतर मेल के लिए अधिक स्किल्स जोड़ें या स्थान बदलें."))
 
 # ------------------------- About -------------------------
 st.markdown("---")
