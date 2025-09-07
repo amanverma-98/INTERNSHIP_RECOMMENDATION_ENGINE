@@ -1,1 +1,25 @@
-
+id,title,skills,sector,location,education_level,apply_url
+1,Web Development Intern / वेब डेवलपमेंट इंटर्न,"Python; HTML; CSS; Git",Technology / टेक्नोलॉजी,Delhi / दिल्ली,UG,https://example.org/apply/1
+2,Marketing Intern / मार्केटिंग इंटर्न,"Content Writing / सामग्री लेखन; SEO; Canva",Marketing / मार्केटिंग,Mumbai / मुंबई,UG,https://example.org/apply/2
+3,Data Analyst Intern / डेटा एनालिस्ट इंटर्न,"Excel; Python; SQL; Power BI",Analytics / एनालिटिक्स,Bengaluru / बेंगलुरु,UG,https://example.org/apply/3
+4,Graphic Design Intern / ग्राफिक डिजाइन इंटर्न,"Photoshop; Illustrator; Canva",Design / डिज़ाइन,Hyderabad / हैदराबाद,UG,https://example.org/apply/4
+5,Rural Education Intern / ग्रामीण शिक्षा इंटर्न,"Teaching / पढ़ाना; Communication / संचार; MS Office",Education / शिक्षा,Rajasthan / राजस्थान,UG,https://example.org/apply/5
+6,Android App Intern / एंड्रॉइड ऐप इंटर्न,"Java; Android Studio; Git",Technology / टेक्नोलॉजी,Pune / पुणे,UG,https://example.org/apply/6
+7,Backend Intern / बैकएंड इंटर्न,"Python; Flask; APIs / एपीआई; SQL; Git",Technology / टेक्नोलॉजी,Delhi / दिल्ली,UG,https://example.org/apply/7
+8,Frontend Intern / फ्रंटएंड इंटर्न,"JavaScript; React; HTML; CSS; Git",Technology / टेक्नोलॉजी,Noida / नोएडा,UG,https://example.org/apply/8
+9,Finance Analyst Intern / फाइनेंस एनालिस्ट इंटर्न,"Excel; Accounting / लेखांकन; Tally",Finance / वित्त,Mumbai / मुंबई,UG,https://example.org/apply/9
+10,Content Intern / कंटेंट इंटर्न,"Content Writing / सामग्री लेखन; Social Media / सोशल मीडिया; Canva",Marketing / मार्केटिंग,Jaipur / जयपुर,UG,https://example.org/apply/10
+11,Operations Intern / ऑपरेशंस इंटर्न,"MS Office; Communication / संचार; Excel",Operations / ऑपरेशंस,Chandigarh / चंडीगढ़,UG,https://example.org/apply/11
+12,HR Intern / HR इंटर्न,"Communication / संचार; MS Office; Recruitment / भर्ती",HR / एचआर,Delhi / दिल्ली,UG,https://example.org/apply/12
+13,Cybersecurity Intern / साइबरसिक्योरिटी इंटर्न,"Networking / नेटवर्किंग; Linux; Security Basics / सुरक्षा मूल बातें",Technology / टेक्नोलॉजी,Hyderabad / हैदराबाद,UG,https://example.org/apply/13
+14,UI/UX Intern / UI/UX इंटर्न,"Figma; Wireframing / वायरफ्रेमिंग; User Research / उपयोगकर्ता अनुसंधान; Canva",Design / डिज़ाइन,Bengaluru / बेंगलुरु,UG,https://example.org/apply/14
+15,Data Science Intern / डेटा साइंस इंटर्न,"Python; Pandas; NumPy; ML Basics / मशीन लर्निंग मूल बातें",Analytics / एनालिटिक्स,Pune / पुणे,UG,https://example.org/apply/15
+16,GIS Intern / GIS इंटर्न,"QGIS; Excel; Data Cleaning / डेटा सफाई",GovTech / सरकारी टेक्नोलॉजी,Bhopal / भोपाल,UG,https://example.org/apply/16
+17,Social Impact Intern / सोशल इम्पैक्ट इंटर्न,"Field Work / फील्ड वर्क; Communication / संचार; Survey / सर्वे",Social / सोशल,Ranchi / रांची,UG,https://example.org/apply/17
+18,Healthcare Admin Intern / हेल्थकेयर एडमिन इंटर्न,"MS Office; Communication / संचार; Basics of EMR / EMR मूल बातें",Healthcare / हेल्थकेयर,Lucknow / लखनऊ,UG,https://example.org/apply/18
+19,IoT Intern / IoT इंटर्न,"Arduino; C++; Sensors / सेंसर; Basic Electronics / बेसिक इलेक्ट्रॉनिक्स",Technology / टेक्नोलॉजी,Ahmedabad / अहमदाबाद,UG,https://example.org/apply/19
+20,Cloud Intern / क्लाउड इंटर्न,"Linux; Networks / नेटवर्क्स; AWS Basics / AWS मूल बातें; Git",Technology / टेक्नोलॉजी,Chennai / चेन्नई,UG,https://example.org/apply/20
+21,AI Research PG Intern / एआई रिसर्च पीजी इंटर्न,"Python; ML / मशीन लर्निंग; Data Analysis / डेटा विश्लेषण",Technology / टेक्नोलॉजी,Bengaluru / बेंगलुरु,PG,https://example.org/apply/21
+22,Data Science PG Intern / डेटा साइंस पीजी इंटर्न,"Python; Pandas; NumPy; ML / मशीन लर्निंग",Analytics / एनालिटिक्स,Pune / पुणे,PG,https://example.org/apply/22
+23,Cybersecurity PG Intern / साइबरसिक्योरिटी पीजी इंटर्न,"Linux; Networking / नेटवर्किंग; Security / सुरक्षा",Technology / टेक्नोलॉजी,Hyderabad / हैदराबाद,PG,https://example.org/apply/23
+24,Healthcare PG Intern / हेल्थकेयर पीजी इंटर्न,"EMR / EMR; Communication / संचार; MS Office",Healthcare / हेल्थकेयर,Lucknow / लखनऊ,PG,https://example.org/apply/24
