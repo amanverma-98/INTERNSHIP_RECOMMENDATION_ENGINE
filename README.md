@@ -91,20 +91,3 @@ flowchart LR
     D --> B
 ```
 
----
-
-## 📌 Notes
-- Dataset is a demo (24 internships). Replace `data/internships.csv` with live data export from the PM portal.
-- The vectorizer builds vocab **from dataset** to keep it lightweight and deterministic.
-- Add more languages by wrapping UI strings in the `t(en, hi)` helper.
-
----
-
-## ✅ SIH Presentation Pointers
-- Live demo: Streamlit prototype on laptop/phone
-- 1 slide: Problem context
-- 1 slide: How it works (vectors + cosine)
-- 1 slide: Integration diagram (above)
-- 1 slide: Future scope (feedback loop, more languages, accessibility icons)
-```
-
