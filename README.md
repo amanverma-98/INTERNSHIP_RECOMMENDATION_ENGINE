@@ -2,6 +2,7 @@
 
 Lightweight, mobile-friendly prototype using **Streamlit** + **cosine similarity** (ML-light) and a **Flask REST API** for future integration with the PM Internship portal.
 
+Streamlit Link : https://internshiprecommendationengine-123456.streamlit.app/
 ## ✨ Features
 - Captures **basic inputs**: skills, sector, location, education
 - **ML-light**: one-hot vectors + cosine similarity
